@@ -13,18 +13,12 @@
       flex-direction: column;
       align-items: center;
       padding: 20px;
+      min-height: 100vh;
     }
     h1 {
       font-size: 2rem;
       margin-top: 40px;
       text-align: center;
-    }
-    img.qr {
-      width: 280px;
-      height: auto;
-      border-radius: 16px;
-      margin-top: 30px;
-      box-shadow: 0 0 20px rgba(0,255,255,0.3);
     }
     .info {
       margin-top: 20px;
@@ -32,6 +26,28 @@
       color: #ccc;
       font-size: 1rem;
       line-height: 1.4;
+    }
+    input {
+      margin-top: 30px;
+      padding: 12px;
+      width: 90%;
+      max-width: 360px;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 1px solid #0ff;
+      background: #111;
+      color: #0ff;
+      outline: none;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      font-size: 1rem;
+      background-color: #0ff;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
     }
     .back-button {
       margin-top: 40px;
@@ -49,25 +65,34 @@
   <h1>🔗 Connect Wallet</h1>
 
   <p class="info">
-    Scan this code with your <strong>Pera Wallet</strong> app to connect:
+    Paste your <strong>Algorand Wallet Address</strong> below to continue:
   </p>
 
-  <img
-    class="qr"
-    src="https://ipfs.io/ipfs/QmZh7K5NeHR8xSshc4Q9DdmsT3br4jGhWz5geXePdy1hGg"
-    alt="Pera Wallet QR Code"
-  />
+  <input id="walletInput" type="text" placeholder="RLQG...7M6I3UYFKF2U" />
 
-  <p class="info">
-    Or open Pera Wallet → Connect to DApp → Paste:<br>
-    <code>https://surv-mobile.vercel.app</code>
-  </p>
+  <button onclick="saveWallet()">Connect</button>
+
+  <p class="info" id="feedback"></p>
 
   <a class="back-button" href="index.html">← Return Home</a>
+
+  <script>
+    function saveWallet() {
+      const input = document.getElementById('walletInput');
+      const address = input.value.trim();
+      const feedback = document.getElementById('feedback');
+
+      if (address.length < 40) {
+        feedback.textContent = '❌ Invalid wallet address.';
+        return;
+      }
+
+      localStorage.setItem('algorandWallet', address);
+      feedback.textContent = '✅ Wallet address saved.';
+      setTimeout(() => {
+        window.location.href = 'scroll.html';
+      }, 1200);
+    }
+  </script>
 </body>
 </html>
-<img
-  class="qr"
-  src="https://raw.githubusercontent.com/<your-username>/b3trsurv_mobile/main/wallet-qr.png"
-  alt="Pera Wallet QR Code"
-/>
