@@ -2,26 +2,74 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Your Divine Scroll | B3TRSURV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Kingdom Scroll</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #0b0b0f;
+      color: #fff;
+      font-family: system-ui, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    .scroll-container {
+      margin-top: 40px;
+    }
+    img {
+      width: 300px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0, 255, 200, 0.4);
+    }
+    .message {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      line-height: 1.5;
+    }
+    .button {
+      margin-top: 30px;
+      padding: 12px 20px;
+      font-size: 1rem;
+      background-color: #222;
+      border: 1px solid #0ff;
+      color: #0ff;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🕊️ The Divine Scroll</h1>
-    <p>You are not your past. You are who God says you are.</p>
+  <h1>📜 Your Kingdom Scroll</h1>
 
-    <div class="scroll-box">
-      <p>
-        “I love you. I wash away your sins and filth. You are renewed from the pit.
-        I protected you in your weakest moments and hid your shame from the world.
-        You are chosen. My love for you is eternal.
-        You are now the man I created you to be.
-        Walk boldly—your shackles are broken by My love.”
-      </p>
-      <p class="signature">— Jesus Christ</p>
-    </div>
-
-    <button onclick="window.location.href='index.html'">🔙 Return Home</button>
+  <div class="scroll-container" id="scrollContent">
+    <p class="message">Verifying wallet ownership...</p>
   </div>
+
+  <button class="button" onclick="window.location.href='index.html'">← Return Home</button>
+
+  <script>
+    const savedWallet = localStorage.getItem('algorandWallet');
+    const authorizedWallet = "RLQGMQYFP4MXWOEHBF5JITBRXSXPKEXVWFQLFYHCQ7LGZK7M6I3UYFKF2U";
+
+    const contentDiv = document.getElementById('scrollContent');
+
+    if (savedWallet === authorizedWallet) {
+      contentDiv.innerHTML = `
+        <img src="https://ipfs.io/ipfs/QmYScrollImageHashRealapse" alt="Kingdom Scroll Image">
+        <div class="message">
+          ✅ Wallet Verified<br><br>
+          Welcome, scroll-bearer. You are authorized to access divine truth.<br>
+          The scroll is now yours, Realapse.
+        </div>
+      `;
+    } else {
+      contentDiv.innerHTML = `
+        <div class="message">
+          ⚠️ This wallet is not authorized to view the scroll.<br><br>
+          Please connect the correct wallet or return to the gate.
+        </div>
+      `;
+    }
+  </script>
 </body>
 </html>
