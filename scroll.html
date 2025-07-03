@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Your Kingdom Scroll</title>
-  <link rel="stylesheet" href="style.css">
   <style>
     body {
       background-color: #0b0b0f;
@@ -13,28 +12,37 @@
       text-align: center;
       padding: 20px;
     }
-    .scroll-container {
+    h1 {
+      font-size: 2rem;
+      color: #0ff;
       margin-top: 40px;
+    }
+    .scroll-container {
+      margin-top: 30px;
     }
     img {
       width: 300px;
+      max-width: 90%;
       border-radius: 20px;
       box-shadow: 0 0 30px rgba(0, 255, 200, 0.4);
+      margin-bottom: 20px;
     }
     .message {
-      margin-top: 20px;
       font-size: 1.2rem;
       line-height: 1.5;
+      margin: 20px auto;
+      max-width: 600px;
     }
     .button {
       margin-top: 30px;
       padding: 12px 20px;
       font-size: 1rem;
-      background-color: #222;
+      background-color: #111;
       border: 1px solid #0ff;
       color: #0ff;
       border-radius: 8px;
       cursor: pointer;
+      text-decoration: none;
     }
   </style>
 </head>
@@ -45,7 +53,7 @@
     <p class="message">Verifying wallet ownership...</p>
   </div>
 
-  <button class="button" onclick="window.location.href='index.html'">← Return Home</button>
+  <a class="button" href="index.html">← Return Home</a>
 
   <script>
     const savedWallet = localStorage.getItem('algorandWallet');
@@ -55,18 +63,19 @@
 
     if (savedWallet === authorizedWallet) {
       contentDiv.innerHTML = `
-        <img src="https://ipfs.io/ipfs/QmYScrollImageHashRealapse" alt="Kingdom Scroll Image">
+        <img src="https://ipfs.io/ipfs/QmYpDhrUCRHDyRPhRAxYZpQ4eD2EtMsH1WSsJ9HPf2RAkn" alt="Kingdom Scroll Image">
         <div class="message">
-          ✅ Wallet Verified<br><br>
+          ✅ <strong>Wallet Verified</strong><br><br>
           Welcome, scroll-bearer. You are authorized to access divine truth.<br>
-          The scroll is now yours, Realapse.
+          The scroll is now yours, <strong>Realapse</strong>.<br><br>
+          This scroll is sealed in the Spirit and written in Heaven. You are a keeper of truth. Walk boldly.
         </div>
       `;
     } else {
       contentDiv.innerHTML = `
         <div class="message">
           ⚠️ This wallet is not authorized to view the scroll.<br><br>
-          Please connect the correct wallet or return to the gate.
+          Please return to the gate and connect the correct wallet to access your scroll.
         </div>
       `;
     }
