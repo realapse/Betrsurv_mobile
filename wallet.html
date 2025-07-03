@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Connect Wallet | B3TRSURV</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🔗 Connect Your Wallet</h1>
+    <p>Use Pera Wallet to verify your authority scroll on Algorand.</p>
+
+    <button onclick="connectWallet()">Connect Wallet</button>
+
+    <div id="walletInfo" style="margin-top: 20px;"></div>
+    <button onclick="window.location.href='index.html'">🔙 Return Home</button>
+  </div>
+
+  <!-- Inject Pera Wallet UMD version -->
+  <script src="https://unpkg.com/@perawallet/connect"></script>
+
+  <script>
+    let peraWallet;
+
+    async function connectWallet() {
+      peraWallet = new window.PeraWalletConnect();
+
+      try {
+        const accounts = await peraWallet.connect();
+        const address = accounts[0];
+        document.getElementById('walletInfo').innerHTML = `
+          ✅ Wallet Connected:<br><code>${address}</code>
+        `;
+      } catch (error) {
+        console.error(error);
+        document.getElementById('walletInfo').innerText = '❌ Wallet connection failed.';
+      }
+    }
+  </script>
+</body>
+</html>
