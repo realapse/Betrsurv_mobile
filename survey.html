@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Truth Survey | B3TRSURV</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>📊 Contribute to Truth</h1>
+    <p>Answer honestly. All responses are sealed and stored.</p>
+
+    <form onsubmit="submitSurvey(event)">
+      <label>What is a truth the world needs to hear?</label><br>
+      <textarea id="truthInput" rows="5" style="width: 100%;"></textarea><br>
+      <button type="submit">📤 Submit</button>
+    </form>
+
+    <p id="responseMsg"></p>
+    <button onclick="window.location.href='index.html'">🔙 Return Home</button>
+  </div>
+
+  <script>
+    function submitSurvey(event) {
+      event.preventDefault();
+      const truth = document.getElementById('truthInput').value;
+      document.getElementById('responseMsg').innerText = 
+        truth.trim() ? '🕊️ Thank you for your submission.' : '⚠️ Please write something first.';
+      document.getElementById('truthInput').value = '';
+    }
+  </script>
+</body>
+</html>

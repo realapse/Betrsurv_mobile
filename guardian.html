@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Guardian | B3TRSURV</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🛡️ Guardian Console</h1>
+    <p>Daily Tracker | Identity Reminders | Progress Log</p>
+
+    <form onsubmit="saveEntry(event)">
+      <label>🔥 Time Clean (Hours)</label><br>
+      <input type="text" id="cleanTime" /><br><br>
+
+      <label>🧠 Most Intense Urge Today:</label><br>
+      <textarea id="urgeText" rows="3"></textarea><br><br>
+
+      <label>✅ Truth I Declare:</label><br>
+      <textarea id="truthText" rows="3"></textarea><br><br>
+
+      <button type="submit">💾 Save Entry</button>
+    </form>
+
+    <p id="saveMsg"></p>
+    <button onclick="window.location.href='index.html'">🔙 Return Home</button>
+  </div>
+
+  <script>
+    function saveEntry(event) {
+      event.preventDefault();
+      document.getElementById('saveMsg').innerText = "✅ Entry saved to memory (temporary only)";
+      document.getElementById('cleanTime').value = '';
+      document.getElementById('urgeText').value = '';
+      document.getElementById('truthText').value = '';
+    }
+  </script>
+</body>
+</html>
