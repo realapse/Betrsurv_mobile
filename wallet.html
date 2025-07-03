@@ -6,37 +6,72 @@
   <title>Connect Wallet | B3TRSURV</title>
   <link rel="stylesheet" href="style.css" />
   <style>
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #111;
+      color: #fff;
+      height: 100vh;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      text-align: center;
+      max-width: 300px;
+    }
+
     #qrBox {
       margin-top: 20px;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
+
     #qrBox img {
-      width: 280px;
-      height: auto;
-      border-radius: 16px;
-      box-shadow: 0 0 12px rgba(0,255,255,0.2);
+      width: 260px;
+      height: 260px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,255,255,0.4);
+      background: #fff;
     }
+
     .note {
       font-size: 0.9rem;
-      color: #aaa;
-      margin-top: 12px;
+      color: #bbb;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px 20px;
+      font-size: 1rem;
+      background-color: #333;
+      border: none;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🔗 Connect Wallet</h1>
-    <p>Scan the QR code using your <strong>Pera Wallet</strong> app:</p>
+  <h1>🔗 Connect Wallet</h1>
+  <p>Scan this code with your Pera Wallet app to connect:</p>
 
-    <div id="qrBox">
-      <img src="https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=algorand://connect" alt="Pera Wallet Connect QR Code" />
-      <div class="note">
-        Or open Pera Wallet and tap “Connect to DApp” manually.<br/>
-        Paste this site URL if needed.
-      </div>
-    </div>
-
-    <button onclick="window.location.href='index.html'">🔙 Return Home</button>
+  <div id="qrBox">
+    <img src="https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=algorand://connect" alt="Connect with Pera Wallet" />
+    <div class="note">Open Pera Wallet > Connect to DApp > Paste this site URL if needed.</div>
   </div>
+
+  <button onclick="window.location.href='index.html'">🔙 Return Home</button>
 </body>
 </html>
