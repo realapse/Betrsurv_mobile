@@ -5,38 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Connect Wallet | B3TRSURV</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    #qrBox {
+      margin-top: 20px;
+      text-align: center;
+    }
+    #qrBox img {
+      width: 280px;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 0 12px rgba(0,255,255,0.2);
+    }
+    .note {
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-top: 12px;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <h1>🔗 Connect Your Wallet</h1>
-    <p>Use Pera Wallet to verify your authority scroll on Algorand.</p>
+    <h1>🔗 Connect Wallet</h1>
+    <p>Scan the QR code using your <strong>Pera Wallet</strong> app:</p>
 
-    <button onclick="connectWallet()">Connect Wallet</button>
+    <div id="qrBox">
+      <img src="https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=algorand://connect" alt="Pera Wallet Connect QR Code" />
+      <div class="note">
+        Or open Pera Wallet and tap “Connect to DApp” manually.<br/>
+        Paste this site URL if needed.
+      </div>
+    </div>
 
-    <div id="walletInfo" style="margin-top: 20px;"></div>
     <button onclick="window.location.href='index.html'">🔙 Return Home</button>
   </div>
-
-  <!-- Inject Pera Wallet UMD version -->
-  <script src="https://unpkg.com/@perawallet/connect"></script>
-
-  <script>
-    let peraWallet;
-
-    async function connectWallet() {
-      peraWallet = new window.PeraWalletConnect();
-
-      try {
-        const accounts = await peraWallet.connect();
-        const address = accounts[0];
-        document.getElementById('walletInfo').innerHTML = `
-          ✅ Wallet Connected:<br><code>${address}</code>
-        `;
-      } catch (error) {
-        console.error(error);
-        document.getElementById('walletInfo').innerText = '❌ Wallet connection failed.';
-      }
-    }
-  </script>
 </body>
-</html>
+</html>>
